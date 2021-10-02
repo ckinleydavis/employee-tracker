@@ -2,6 +2,11 @@ const mysql = require("mysql2");
 const inquirer = require("inquirer");
 const viewEmployees = require("./models/viewEmployees");
 const viewEmployeeByDepartment = require("./models/viewEmployeeByDepartment");
+const viewAllRoles = require("./models/viewAllRoles");
+const addEmployee = require("./models/addEmployee");
+const addRole = require("./models/addRole");
+const updateEmployeeRole = require("./models/updateEmployeeRole");
+const { exit } = require("process");
 
 
 
@@ -29,6 +34,16 @@ inquirer.prompt({
         viewEmployees(connection, init);
     } else if(answer.main === "View All Employees by Department"){
         viewEmployeeByDepartment(connection, init);
+    } else if(answer.main === "View All Roles"){
+        viewAllRoles(connection, init);
+    } else if(answer.main === "Add Employee"){
+        addEmployee(connection, init);
+    } else if(answer.main === "Add Role"){
+        addRole(connection, init);
+    } else if(answer.main === "Update Employee Role"){
+        updateEmployeeRole(connection, init);
+    } else if(answer.main === "Quit"){
+        exit;
     }
 })
 }
