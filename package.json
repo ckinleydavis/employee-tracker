@@ -1,0 +1,24 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "Employee management application",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm run test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ckinleydavis/employee-tracker.git"
+  },
+  "author": "Carla Kinley-Davis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ckinleydavis/employee-tracker/issues"
+  },
+  "homepage": "https://github.com/ckinleydavis/employee-tracker#readme",
+  "dependencies": {
+    "inquirer": "^8.1.5",
+    "mysql2": "^2.3.0"
+  }
+}
