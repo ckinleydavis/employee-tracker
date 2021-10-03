@@ -4,11 +4,10 @@ const viewEmployees = require("./models/viewEmployees");
 const viewEmployeeByDepartment = require("./models/viewEmployeeByDepartment");
 const viewAllRoles = require("./models/viewAllRoles");
 const addEmployee = require("./models/addEmployee");
+const addDepartment = require("./models/addDepartment");
 const addRole = require("./models/addRole");
 const updateEmployeeRole = require("./models/updateEmployeeRole");
 const { exit } = require("process");
-
-
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -28,7 +27,7 @@ inquirer.prompt({
     name: "main",
     type: "list",
     message: "What would you like to do?",
-    choices: ["View All Employees", "View All Employees by Department", "Add Employee", "Update Employee Role", "View All Roles", "Add Role", "Quit"]
+    choices: ["View All Employees", "View All Employees by Department", "View All Roles", "Add Employee", "Add Department", "Add Role", "Update Employee Role", "Quit"]
 }).then(function(answer){
     if(answer.main === "View All Employees"){
         viewEmployees(connection, init);
@@ -38,6 +37,8 @@ inquirer.prompt({
         viewAllRoles(connection, init);
     } else if(answer.main === "Add Employee"){
         addEmployee(connection, init);
+    } else if(answer.main === "Add Department"){
+        addDepartment(connection, init);
     } else if(answer.main === "Add Role"){
         addRole(connection, init);
     } else if(answer.main === "Update Employee Role"){
